@@ -50,13 +50,16 @@
     color: #333333;
 }
 
-/* Your order */
-.your-order h1 {
+.section-title {
     font-size: 32px; /* todo: make more responsive with clamp */
     color: #333333;
 }
 
 #order-btn {
     font-size: 18px;
+    background-color: #000;
+}
+
+#order-count {
     background-color: #000;
 }
