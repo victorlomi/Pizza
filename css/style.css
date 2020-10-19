@@ -5,7 +5,7 @@
 
 .navbar-brand {
     font-family: 'Righteous', cursive;
-    font-size: 28px
+    font-size: 28px;
 }
 
 .navbar-light 
@@ -22,4 +22,11 @@
 
 .bottom-line {
     border-bottom: 1px solid #f5f6f6;
+}
+
+/* Page info and form  */
+.page-title {
+    font-size: 48px;
+    color: #333333;
+    font-weight: bold;
 }
