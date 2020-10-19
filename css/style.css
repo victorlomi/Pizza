@@ -5,7 +5,7 @@
 
 .navbar-brand {
     font-family: 'Righteous', cursive;
-    font-size: 28px;
+    font-size: 28px; /* todo: make more responsive with clamp */
 }
 
 .navbar-light 
@@ -38,7 +38,7 @@
 }
 
 .hero-text {
-    font-size: 20px;
+    font-size: 20px; /* todo: make more responsive with clamp */
     text-align: center;
     line-height: 1.6;
     color: #333333;
@@ -46,7 +46,13 @@
 
 /* Form */
 
-/* Your detail */
+/* Your details */
 .your-details h1 {
-    font-size: 24px;
+    font-size: 32px; /* todo: make more responsive with clamp */
+    color: #333333;
+}
+
+/* Pizza size */
+.pizza-size-group label {
+    font-size: 18px;
 }
