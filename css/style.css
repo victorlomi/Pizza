@@ -51,7 +51,7 @@
 }
 
 /* Your details */
-.your-details h1 {
+.your-order h1 {
     font-size: 32px; /* todo: make more responsive with clamp */
     color: #333333;
 }
