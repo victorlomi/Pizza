@@ -1,0 +1,12 @@
+/* navbar */
+.navbar {
+    padding: 0.9rem 1rem;
+}
+
+.navbar-brand {
+    font-size: 16px;
+}
+
+.bottom-line {
+    border-bottom: 1px solid #f5f6f6;
+}
