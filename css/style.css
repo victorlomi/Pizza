@@ -45,14 +45,13 @@
 }
 
 /* Form */
+.select-label {
+    font-size: 18px;
+    color: #333333;
+}
 
 /* Your details */
 .your-details h1 {
     font-size: 32px; /* todo: make more responsive with clamp */
     color: #333333;
-}
-
-/* Pizza size */
-.pizza-size-group label {
-    font-size: 18px;
 }

@@ -59,14 +59,29 @@
             <div class="col-md-8 your-details">
                 <h1 class="mb-4">Your Details</h1>
                 <form>
-                    <div class="row">
+                    <div class="row mb-2">
                         <div class="col-sm-6">
-                            <div class="form-group pizza-size-group">
-                                <label for="pizza-size">Pizza Size</label>
+                            <div class="form-group">
+                                <label class="select-label" for="pizza-size">Pizza Size</label>
                                 <select name="pizza-size" id="pizza-size" class="form-control">
                                     <option value="small">Small</option>
                                     <option value="medium">Medium</option>
                                     <option value="large">Large</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="select-label" for="crust-type">Crust Type</label>
+                                <select name="crust-type" id="crust-type" class="form-control">
+                                    <option value="crispy">Crispy Crust</option>
+                                    <option value="stuffed">Stuffed Crust</option>
+                                    <option value="deep">Deep Crust</option>
+                                    <option value="flatbread">Flatbread Crust</option>
+                                    <option value="pan">Pan Crust</option>
                                 </select>
                             </div>
                         </div>
