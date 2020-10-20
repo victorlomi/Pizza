@@ -242,15 +242,15 @@ let getTotalPrice = function() {
 }
 let createTotalCard = function() {
     let total = document.createElement("li");
-    total.innerText = `Total Price: ${getTotalPrice()}`;
+    total.innerText = `Total Price: ${getTotalPrice()} Ksh`;
     total.classList.add("list-group-item");
     total.classList.add("total");
     return total;
 }
 
 let updateCheckout = function() {
-    let total = document.getElementsByClassName("total");
-    total.innerText = `Total Price: ${getTotalPrice()}`;
+    let total = document.getElementsByClassName("total")[0];
+    total.innerText = `Total Price: ${getTotalPrice()} Ksh`;
 }
 
 checkoutBtn.addEventListener("click", function() {
