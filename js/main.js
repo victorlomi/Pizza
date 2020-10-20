@@ -221,12 +221,20 @@ orderBtn.addEventListener("click", createOrder);
 let updateDeliveryPrice = function() {
     let cost = orders.length * 80; 
     alert(`Update: Your Delivery will now cost ${cost} Ksh`);
+    return cost;
 }
 
 let showDeliveryPrice = function() {
     // This function will alert the user of the delivery price
     let cost = orders.length * 80; 
     alert(`Your Delivery will cost ${cost} Ksh`);
+    return cost;
+}
+
+let getDeliveryPrice = function() {
+    // This function will return the delivery price
+    let cost = orders.length * 80; 
+    return cost;
 }
 
 wantsDelivery.addEventListener("click", function() {
@@ -248,11 +256,23 @@ let getTotalPrice = function() {
     let totalPrice = prices.reduce(function(total, num) {
         return total + num;
     });
+
+    if(wantsDelivery.checked) {
+        return totalPrice + getDeliveryPrice();
+    }
     return totalPrice;
 }
 let createTotalCard = function() {
     let total = document.createElement("li");
-    total.innerText = `Total Price: ${getTotalPrice()} Ksh`;
+
+    // show message about delivery fee
+    if(wantsDelivery.checked) {
+        total.innerText = `Total Price: ${getTotalPrice()} Ksh (${getDeliveryPrice()} Ksh delivery fee)`;
+    } else {
+        total.innerText = `Total Price: ${getTotalPrice()} Ksh`;
+    }
+
+    // add classes to make it look nicer
     total.classList.add("list-group-item");
     total.classList.add("total");
     return total;
@@ -260,7 +280,12 @@ let createTotalCard = function() {
 
 let updateCheckout = function() {
     let total = document.getElementsByClassName("total")[0];
-    total.innerText = `Total Price: ${getTotalPrice()} Ksh`;
+
+    if(wantsDelivery.checked) {
+        total.innerText = `Total Price: ${getTotalPrice()} Ksh (${getDeliveryPrice()} Ksh delivery fee)`;
+    } else {
+        total.innerText = `Total Price: ${getTotalPrice()} Ksh`;
+    }
 }
 
 checkoutBtn.addEventListener("click", function() {
