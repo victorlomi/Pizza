@@ -141,15 +141,22 @@ let createOrderCard = function(order) {
     crust.classList.add("text-muted");
 
     let toppingText = document.createElement("span");
-    toppingText.innerText = "Toppings: ";
     toppingText.classList.add("toppings-text");
 
-    order.toppings.forEach(function(topping) {
-        toppingText.innerText += topping.lastElementChild.innerText + ", ";
-    });
+    // check if there's any toppings
+    if(order.toppings.length > 0) {
+        toppingText.innerText = "Toppings: ";
 
-    // remove comma at end
-    toppingText.innerText = toppingText.innerText.substring(0, toppingText.innerText.length-2);
+        order.toppings.forEach(function(topping) {
+            toppingText.innerText += topping.lastElementChild.innerText + ", ";
+        });
+
+        // remove comma at end
+        toppingText.innerText = toppingText.innerText.substring(0, toppingText.innerText.length-2);
+    } else {
+        toppingText.innerText = "No Toppings"
+    }
+    
 
     card.appendChild(title);
     card.appendChild(crust);
