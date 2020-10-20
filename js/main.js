@@ -131,7 +131,7 @@ let createOrderCard = function(order) {
     card.classList.add("card-body");
 
     let title = document.createElement("h4");
-    title.innerText = `${order.getSize()} Pizza ˣ`
+    title.innerText = `${order.getSize()} Pizza`
     title.classList.add("card-title");
 
     let quantity = document.createElement("span");
