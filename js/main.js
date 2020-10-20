@@ -76,7 +76,7 @@ let toppings = Array.from(document.getElementsByClassName("form-check"));
 let orderBtn = document.getElementById("order-btn");
 
 // list of orders
-let listOfOrders = document.getElementsByClassName("list-group");
+let listOfOrders = document.getElementById("orders");
 
 // keeps track of all the pizzas ordered
 let orders = [];
@@ -165,7 +165,7 @@ let displayOrders = function(order) {
     // in the orders section on the right side
     hideNoOrders();
     updateOrderCount();
-    listOfOrders[0].appendChild(createOrderCard(order)); 
+    listOfOrders.appendChild(createOrderCard(order)); 
 
     // Update price if quantity changes
     quantityCounters = document.getElementsByClassName("quantity-counter");
@@ -258,7 +258,7 @@ checkoutBtn.addEventListener("click", function() {
         updateCheckout();
     } else {
         let totalCard = createTotalCard();
-        let card = document.getElementsByClassName("list-group")[0];
+        let card = document.getElementById("total");
         card.appendChild(totalCard);
     }
     checkoutPressed = true;
