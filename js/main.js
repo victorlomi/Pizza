@@ -81,6 +81,9 @@ let listOfOrders = document.getElementsByClassName("list-group");
 // keeps track of all the pizzas ordered
 let orders = [];
 
+// Keeps track of all quantity counters
+let quantityCounters;
+
 let getArrOfToppings = function(toppings) {
     // This function returns an array of all the checked toppings
     let arr = [];
@@ -119,6 +122,7 @@ let createOrderCard = function(order) {
     title.classList.add("card-title");
 
     let quantity = document.createElement("span");
+    quantity.classList.add("quantity-counter");
     quantity.innerHTML = 'Quantity: <input style="width: 60px;" value="1" type="number" name="" id="">'
 
     let price = document.createElement("div");
@@ -155,6 +159,19 @@ let displayOrders = function(order) {
     hideNoOrders();
     updateOrderCount();
     listOfOrders[0].appendChild(createOrderCard(order)); 
+
+    // Update price if quantity changes
+    quantityCounters = document.getElementsByClassName("quantity-counter");
+
+    if(!(quantityCounters == undefined)) {
+        Array.from(quantityCounters).forEach(function(counter) {
+            counter.addEventListener("focusout", function() {
+                order.quantity = +counter.lastElementChild.value;
+                counter.parentElement.children[3].innerText = `Price: ${order.getPrice()} KSH`;
+                console.log(counter.parentElement.children[3]);
+            });
+        });
+    }
 }
 
 // Create pizza object when order button is clicked
@@ -175,4 +192,6 @@ let createOrder = function() {
     displayOrders(order);
 }
 
+// Respond to pizza order
 orderBtn.addEventListener("click", createOrder);
+
