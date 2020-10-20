@@ -258,6 +258,10 @@ wantsDelivery.addEventListener("click", function() {
         alert("Please make an order first.");
         wantsDelivery.checked = false;
     }
+
+    if(checkoutPressed) {
+        updateCheckout();
+    }
 });
 
 // Handle checkout
