@@ -117,6 +117,12 @@ let updateOrderCount = function() {
     count.innerText = orders.length;
 }
 
+let clearToppingFields = function(toppings) {
+    toppings.forEach(function(topping) {
+        topping.firstElementChild.checked = false;
+    });
+}
+
 let createOrderCard = function(order) {
     // This function creates a card that displays
     // the order's size, price, quanity, crust, and toppings
@@ -173,6 +179,7 @@ let displayOrders = function(order) {
     hideNoOrders();
     updateOrderCount();
     listOfOrders.appendChild(createOrderCard(order)); 
+    clearToppingFields(toppings);
 
     // Update price if quantity changes
     quantityCounters = document.getElementsByClassName("quantity-counter");
