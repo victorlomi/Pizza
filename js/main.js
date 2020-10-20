@@ -35,7 +35,19 @@ Pizza.prototype.calculateSize = function() {
 Pizza.prototype.calculateToppings = function() {
     // This function returns price based on toppings
     // toppings are the same in price for now
-    return this.toppings.length * 50;
+    switch(this.size) {
+        case "small":
+            return 50 * this.toppings.length;
+            break;
+        case "medium":
+            return 100 * this.toppings.length
+            break;
+        case "large":
+            return 150 * this.toppings.length;
+            break;
+        default:
+            break;
+    }
 }
 
 Pizza.prototype.calculateCrust = function() {
