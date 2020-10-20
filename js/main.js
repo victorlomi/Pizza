@@ -84,6 +84,9 @@ let orders = [];
 // Keeps track of all quantity counters
 let quantityCounters;
 
+// keeps track of delivery buttons
+let wantsDelivery = document.getElementById("delivery-yes")
+
 let getArrOfToppings = function(toppings) {
     // This function returns an array of all the checked toppings
     let arr = [];
@@ -126,7 +129,7 @@ let createOrderCard = function(order) {
     quantity.innerHTML = 'Quantity: <input style="width: 60px;" value="1" type="number" name="" id="">'
 
     let price = document.createElement("div");
-    price.innerText = `Price: ${order.getPrice()} KSH`;
+    price.innerText = `Price: ${order.getPrice()} Ksh`;
 
     let crust = document.createElement("h6");
     crust.innerText = `with ${order.getCrust()} Crust`;
@@ -190,8 +193,36 @@ let createOrder = function() {
     orders.push(order)
 
     displayOrders(order);
+    
+    // Update delivery charge message
+    if((orders.length > 1) && (wantsDelivery.checked)) {
+        updateDeliveryPrice();
+    }
 }
 
 // Respond to pizza order
 orderBtn.addEventListener("click", createOrder);
+
+// Respond to delivery request
+let updateDeliveryPrice = function() {
+    let cost = orders.length * 80; 
+    alert(`Update: Your Delivery will now cost ${cost} Ksh`);
+}
+
+let showDeliveryPrice = function() {
+    // This function will alert the user of the delivery price
+    let cost = orders.length * 80; 
+    alert(`Your Delivery will cost ${cost} Ksh`);
+}
+
+wantsDelivery.addEventListener("click", function() {
+    if(orders.length != 0) {
+        let location = prompt("Where would you like the delivery to be made?");
+        alert(`Your order will be delivered to '${location}'`);
+        showDeliveryPrice();
+    } else {
+        alert("Please make an order first.");
+        wantsDelivery.checked = false;
+    }
+});
 
