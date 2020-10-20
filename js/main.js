@@ -87,8 +87,9 @@ let quantityCounters;
 // keeps track of delivery buttons
 let wantsDelivery = document.getElementById("delivery-yes")
 
-// keeps track of the checkout button
+// keeps track of the checkout button and status
 let checkoutBtn = document.getElementById("checkout-btn");
+let checkoutPressed = false;
 
 let getArrOfToppings = function(toppings) {
     // This function returns an array of all the checked toppings
@@ -247,8 +248,18 @@ let createTotalCard = function() {
     return total;
 }
 
+let updateCheckout = function() {
+    let total = document.getElementsByClassName("total");
+    total.innerText = `Total Price: ${getTotalPrice()}`;
+}
+
 checkoutBtn.addEventListener("click", function() {
-    let totalCard = createTotalCard();
-    let card = document.getElementsByClassName("list-group")[0];
-    card.appendChild(totalCard);
+    if(checkoutPressed) {
+        updateCheckout();
+    } else {
+        let totalCard = createTotalCard();
+        let card = document.getElementsByClassName("list-group")[0];
+        card.appendChild(totalCard);
+    }
+    checkoutPressed = true;
 });
