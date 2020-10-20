@@ -224,6 +224,10 @@ let createOrder = function() {
     if((orders.length > 1) && (wantsDelivery.checked)) {
         updateDeliveryPrice();
     }
+
+    if(checkoutPressed) {
+        updateCheckout();
+    }
 }
 
 // Respond to pizza order
