@@ -5,7 +5,7 @@ function Pizza(size, crust) {
     this.crust = crust;
     this.price = 0;
     this.toppings = [];
-    this.orders = 1;
+    this.quantity = 1;
 }
 
 Pizza.prototype.calculateSize = function() {
@@ -53,12 +53,12 @@ Pizza.prototype.calculateCrust = function() {
 Pizza.prototype.getPrice = function() {
     // This function returns the price of the pizza
     // depending on it's size, crust, toppings,
-    // and the number of orders
+    // and the number of quantity
     let finalPrice = 0;
     finalPrice += this.calculateSize();
     finalPrice += this.calculateToppings();
     finalPrice += this.calculateCrust();
-    finalPrice *= this.orders;
+    finalPrice *= this.quantity;
     return finalPrice;
 };
 
@@ -68,4 +68,19 @@ let crustSelector = document.getElementById("crust-type");
 let toppings = document.getElementsByClassName("form-check");
 let orderBtn = document.getElementById("order-btn");
 
+// keeps track of all the pizzas ordered
+let orders = [];
 
+// Create pizza object when order button is clicked
+let createOrder = function() {
+    // This function will create a pizza object and 
+    // add it to the orders array. Along with this
+    // it will add it to the orders section
+    console.log("Creating an order");
+    let size = sizeSelector.value;
+    let crustType = crustSelector.value;
+    let order = new Pizza(size, crustType);
+    console.log(order);
+}
+
+orderBtn.addEventListener("click", createOrder);
