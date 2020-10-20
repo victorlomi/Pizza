@@ -67,3 +67,17 @@
 .hide-no-order {
     display: none;
 }
+
+.card-title {
+    font-size: 20px;
+    color: #333333;
+}
+
+.card-subtitle {
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+
+.toppings-text {
+    
+}

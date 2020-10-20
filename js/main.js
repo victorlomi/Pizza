@@ -8,6 +8,14 @@ function Pizza(size, crust) {
     this.quantity = 1;
 }
 
+Pizza.prototype.getSize = function() {
+    return this.size[0].toUpperCase() + this.size.substring(1);
+}
+
+Pizza.prototype.getCrust = function() {
+    return this.crust[0].toUpperCase() + this.crust.substring(1);
+}
+
 Pizza.prototype.calculateSize = function() {
     // This function returns price based on size
     switch (this.size) {
@@ -67,6 +75,9 @@ let crustSelector = document.getElementById("crust-type");
 let toppings = Array.from(document.getElementsByClassName("form-check"));
 let orderBtn = document.getElementById("order-btn");
 
+// list of orders
+let listOfOrders = document.getElementsByClassName("list-group");
+
 // keeps track of all the pizzas ordered
 let orders = [];
 
@@ -90,16 +101,60 @@ let hideNoOrders = function() {
 }
 
 let updateOrderCount = function() {
+    // This functions updates the count displayed 
+    // in the badge of the orders section
     let count = document.getElementById("order-count");
     count.innerText = orders.length;
 }
 
-let displayOrders = function() {
+let createOrderCard = function(order) {
+    // This function creates a card that displays
+    // the order's size, price, quanity, crust, and toppings
+    let card = document.createElement("li");
+    card.classList.add("list-group-item");
+    card.classList.add("card-body");
+
+    let title = document.createElement("h4");
+    title.innerText = `${order.getSize()} Pizza ˣ`
+    title.classList.add("card-title");
+
+    let quantity = document.createElement("span");
+    quantity.innerHTML = 'Quantity: <input style="width: 60px;" value="1" type="number" name="" id="">'
+
+    let price = document.createElement("div");
+    price.innerText = `Price: ${order.getPrice()} KSH`;
+
+    let crust = document.createElement("h6");
+    crust.innerText = `with ${order.getCrust()} Crust`;
+    crust.classList.add("card-subtitle");
+    crust.classList.add("text-muted");
+
+    let toppingText = document.createElement("span");
+    toppingText.innerText = "Toppings: ";
+    toppingText.classList.add("toppings-text");
+
+    order.toppings.forEach(function(topping) {
+        toppingText.innerText += topping.lastElementChild.innerText + ", ";
+    });
+
+    // remove comma at end
+    toppingText.innerText = toppingText.innerText.substring(0, toppingText.innerText.length-2);
+
+    card.appendChild(title);
+    card.appendChild(crust);
+    card.appendChild(quantity);
+    card.appendChild(price);
+    card.appendChild(toppingText);
+
+    return card;
+}
+
+let displayOrders = function(order) {
     // This function displays all the orders 
     // in the orders section on the right side
     hideNoOrders();
     updateOrderCount();
-
+    listOfOrders[0].appendChild(createOrderCard(order)); 
 }
 
 // Create pizza object when order button is clicked
@@ -117,7 +172,7 @@ let createOrder = function() {
     console.log(order);
     orders.push(order)
 
-    displayOrders();
+    displayOrders(order);
 }
 
 orderBtn.addEventListener("click", createOrder);
