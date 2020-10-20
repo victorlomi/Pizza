@@ -63,3 +63,7 @@
 #order-count {
     background-color: #000;
 }
+
+.hide-no-order {
+    display: none;
+}

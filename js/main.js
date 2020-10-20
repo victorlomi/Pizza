@@ -49,7 +49,6 @@ Pizza.prototype.calculateCrust = function() {
     }
 }
 
-
 Pizza.prototype.getPrice = function() {
     // This function returns the price of the pizza
     // depending on it's size, crust, toppings,
@@ -82,6 +81,27 @@ let getArrOfToppings = function(toppings) {
     return arr;
 }
 
+let hideNoOrders = function() {
+     // This function hides no orders text in Orders section
+    if(orders.length === 1) {
+        let noOrder = document.getElementById("no-order");
+        noOrder.classList.add("hide-no-order");
+    }
+}
+
+let updateOrderCount = function() {
+    let count = document.getElementById("order-count");
+    count.innerText = orders.length;
+}
+
+let displayOrders = function() {
+    // This function displays all the orders 
+    // in the orders section on the right side
+    hideNoOrders();
+    updateOrderCount();
+
+}
+
 // Create pizza object when order button is clicked
 let createOrder = function() {
     // This function will create a pizza object and 
@@ -95,6 +115,9 @@ let createOrder = function() {
     order.toppings = getArrOfToppings(toppings);
 
     console.log(order);
+    orders.push(order)
+
+    displayOrders();
 }
 
 orderBtn.addEventListener("click", createOrder);
