@@ -189,7 +189,6 @@ let displayOrders = function(order) {
             counter.addEventListener("focusout", function() {
                 order.quantity = +counter.lastElementChild.value;
                 counter.parentElement.children[3].innerText = `Price: ${order.getPrice()} KSH`;
-                console.log(counter.parentElement.children[3]);
             });
         });
     }
@@ -200,14 +199,11 @@ let createOrder = function() {
     // This function will create a pizza object and 
     // add it to the orders array. Along with this
     // it will add it to the orders section
-    console.log("Creating an order");
-
     let size = sizeSelector.value;
     let crustType = crustSelector.value;
     let order = new Pizza(size, crustType);
     order.toppings = getArrOfToppings(toppings);
 
-    console.log(order);
     orders.push(order)
 
     displayOrders(order);
