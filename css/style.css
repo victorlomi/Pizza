@@ -60,6 +60,11 @@
     background-color: #000;
 }
 
+#checkout-btn {
+    font-size: 18px;
+    background-color: #000;
+}
+
 #order-count {
     background-color: #000;
 }
@@ -79,5 +84,5 @@
 }
 
 .toppings-text {
-    
+
 }
