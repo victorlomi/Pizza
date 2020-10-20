@@ -84,7 +84,7 @@ Pizza.prototype.getPrice = function() {
 // inputs for creating pizza objects
 let sizeSelector = document.getElementById("pizza-size");
 let crustSelector = document.getElementById("crust-type");
-let toppings = Array.from(document.getElementsByClassName("form-check"));
+let toppings = Array.from(document.getElementsByClassName("topping-check"));
 let orderBtn = document.getElementById("order-btn");
 
 // list of orders
