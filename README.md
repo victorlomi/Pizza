@@ -3,7 +3,7 @@ A website for the fictional Pizza Panda restaurant group. This website showcases
 
 **Author: Victor Lominyo**
 
-**Live Link: https://github.com/victorlomi/Pizza-Panda**
+**Live Link: https://victorlomi.github.io/Pizza-Panda/**
 
 Technologies Used
 =
