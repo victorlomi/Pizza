@@ -62,5 +62,10 @@ Pizza.prototype.getPrice = function() {
     return finalPrice;
 };
 
-let sm = new Pizza("small", "stuffed");
-console.log(sm.getPrice());
+// inputs for creating pizza objects
+let sizeSelector = document.getElementById("pizza-size");
+let crustSelector = document.getElementById("crust-type");
+let toppings = document.getElementsByClassName("form-check");
+let orderBtn = document.getElementById("order-btn");
+
+
