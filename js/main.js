@@ -254,12 +254,16 @@ let updateCheckout = function() {
 }
 
 checkoutBtn.addEventListener("click", function() {
-    if(checkoutPressed) {
-        updateCheckout();
+    if(orders.length != 0) {
+        if(checkoutPressed) {
+            updateCheckout();
+        } else {
+            let totalCard = createTotalCard();
+            let card = document.getElementById("total-group");
+            card.appendChild(totalCard);
+        }
+        checkoutPressed = true;
     } else {
-        let totalCard = createTotalCard();
-        let card = document.getElementById("total");
-        card.appendChild(totalCard);
+        alert("Please make an order first.");
     }
-    checkoutPressed = true;
 });
